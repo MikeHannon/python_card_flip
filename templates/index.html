@@ -14,10 +14,13 @@
 </head>
 <body>
   {% for element in session['deck'] %}
-    <form action ='flip' method ='post'>
-      <img src = "{{ url_for('static', filename= element['image']) }}" alt = 'nothing'>
+    <form action ='/flip' method ='post'>
+      <input type='hidden' name='card_index' value = {{loop.index0}}>
+      <button><img src = "{{ url_for('static', filename= element['image']) }}" alt = 'nothing'>
+      </button>
     </form>
   {% endfor %}
 
+<a href = '/reset'> RESET CARDS </a>
 </body>
 </html>
