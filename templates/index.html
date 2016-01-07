@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    img {
+      height:50px;
+    }
+    form{
+      display:inline-block;
+    }
+  </style>
+</head>
+<body>
+  {% for element in session['deck'] %}
+    <form action ='flip' method ='post'>
+      <img src = "{{ url_for('static', filename= element['image']) }}" alt = 'nothing'>
+    </form>
+  {% endfor %}
+
+</body>
+</html>
